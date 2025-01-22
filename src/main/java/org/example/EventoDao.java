@@ -41,4 +41,12 @@ public void delete(Long id){
             throw e;
         }
 }
+
+    public boolean existsByTitolo(String titolo) {
+        String jpql = "SELECT COUNT(e) FROM Evento e WHERE e.titolo = :titolo";
+        Long count = entityManager.createQuery(jpql, Long.class)
+                .setParameter("titolo", titolo)
+                .getSingleResult();
+        return count > 0;
+    }
 }

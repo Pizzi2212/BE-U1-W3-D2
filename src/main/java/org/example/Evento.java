@@ -26,6 +26,12 @@ public class Evento {
     @Column(name = "numero_max_partecipenti", nullable = false)
     private Integer numeroMassimoPartecipanti;
 
+
+    public Evento(){
+
+    }
+
+
     public Evento(String titolo, LocalDate dataEvento, String descrizione, TipoEvento tipoEvento, Integer numeroMassimoPartecipanti) {
         this.titolo = titolo;
         this.dataEvento = dataEvento;
@@ -85,22 +91,7 @@ public class Evento {
 
 
     public enum TipoEvento {
-        PUBBLICO("pubblico"), PRIVATO("privato");
-
-        private final String tipo;
-
-        TipoEvento(String tipo) {
-            this.tipo = tipo;
-        }
-
-        public String getTipo() {
-            return tipo;
-        }
-
-        @Override
-        public String toString() {
-            return tipo;  // Assicurati che restituisca il valore in minuscolo
-        }
+        pubblico, privato
     }
 
 }
